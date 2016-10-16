@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 public class GameUI {
 
-    /*
-    Shows the entire hand of intended player
+    /**
+     * Shows the entire hand of intended player
+     * 
+     * Also handles exceptions if array is out of bounds or hand is empty
      */
     public void showHand(Player p) throws NoSuchCardException {
         p.sortHand();

@@ -19,9 +19,12 @@ public class Hand {
     public void addCard(Card c) {
         hand.add(c);
     }
-
+    /**
+     * @param index
+     * @return card at specific index
+     * @throws NoSuchCardException if hand is out of boundaries 
+     */
     public Card getCard(int index) throws NoSuchCardException {
-
         try {
             return hand.get(index);
         } catch (Exception n) {
@@ -39,6 +42,9 @@ public class Hand {
         }
     }
 
+    /**
+     *Sorts the hand after card rank value
+     */
     public void sortHand() {
         Collections.sort(hand, new Comparator<Card>() {
             @Override

@@ -1,22 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package cards;
 
 /**
  *
- * @author Faddy
+ * @author Fatih Yalcin & Hampus Glantz
  */
 public class NoSuchCardException extends java.lang.RuntimeException {
-
+    /**
+     * Gets specific exception value that later gets used by getMessage function
+     */
     int whyYouBroken;
-
+    
     public NoSuchCardException(int brokenShit) {
         whyYouBroken = brokenShit;
     }
 
+    /**
+     * Gets the message for specific exception
+     * @return message
+     */
     @Override
     public String getMessage() {
         switch (whyYouBroken) {
