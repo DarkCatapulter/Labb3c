@@ -18,11 +18,15 @@ public class Hand {
         hand.add(c);
     }
 
-    public Card getCard(int index) {
+    public Card getCard(int index) throws NoSuchCardException{
         try {
             return hand.get(index);
-        } catch (NoSuchCardException n) {
-                System.out.println(n.getMessage());
+        } catch (Exception n) {
+                    if (index < 0 || index >hand.size()) {
+                    throw new NoSuchCardException(1);
+                } else if (hand.size() == 0) {
+                    throw new NoSuchCardException(3);
+                }
         }
         return null;
     }

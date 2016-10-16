@@ -42,7 +42,8 @@ public class Game {
         Shows what cards each player currently have, including the dealer
          */
         for (int i = 0; i <= noOfPlayers; i++) {
-            ui.showHand(player[i]);
+               ui.showHand(player[i]);
+          
         }
 
         /*

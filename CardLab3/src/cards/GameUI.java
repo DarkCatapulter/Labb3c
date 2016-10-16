@@ -17,12 +17,9 @@ public class GameUI {
                     System.out.print(" and ");
                 }
                 System.out.print(c);
-            } catch (ArrayIndexOutOfBoundsException e) {
-                if (i < 0 || i > p.getNoOfCards()) {
-                    throw new NoSuchCardException(1);
-                } else if (p.getNoOfCards() == 0) {
-                    throw new NoSuchCardException(3);
-                }
+            } catch (NoSuchCardException e) {
+               System.out.println(e.getMessage());
+               throw e;
             }
         }
         System.out.println("\n");
