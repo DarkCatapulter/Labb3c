@@ -21,7 +21,7 @@ public class NoSuchCardException extends java.lang.RuntimeException {
     public String getMessage() {
         switch (whyYouBroken) {
             case 1:
-                return "Out of boundaries";
+                return "Hand is out of boundaries ¯\\_(ツ)_/¯";
             case 2:
                 return "Your deck ran out of cards dumbo";
             case 3:

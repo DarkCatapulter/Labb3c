@@ -1,6 +1,8 @@
 package cards;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Hand {
 
@@ -18,17 +20,13 @@ public class Hand {
         hand.add(c);
     }
 
-    public Card getCard(int index) throws NoSuchCardException{
+    public Card getCard(int index) throws NoSuchCardException {
+
         try {
             return hand.get(index);
         } catch (Exception n) {
-                    if (index < 0 || index >hand.size()) {
-                    throw new NoSuchCardException(1);
-                } else if (hand.size() == 0) {
-                    throw new NoSuchCardException(3);
-                }
+            throw new NoSuchCardException(1);
         }
-        return null;
     }
 
     public Card removeCard(int index) {
@@ -39,5 +37,16 @@ public class Hand {
         } else {
             return null;
         }
+    }
+
+    public void sortHand() {
+        Collections.sort(hand, new Comparator<Card>() {
+            @Override
+            public int compare(Card c1, Card c2) {
+                Integer obj1 = c1.getRankValue();
+                Integer obj2 = c2.getRankValue();
+                return obj1.compareTo(obj2);
+            }
+        });
     }
 }

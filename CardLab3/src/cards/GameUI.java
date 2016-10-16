@@ -8,18 +8,21 @@ public class GameUI {
     Shows the entire hand of intended player
      */
     public void showHand(Player p) throws NoSuchCardException {
+        p.sortHand();
         System.out.print(p.getName() + " has ");
         Card c;
+        if (p.getNoOfCards() == 0) {
+            throw new NoSuchCardException(3);
+        }
         for (int i = 0; i < p.getNoOfCards(); i++) {
             try {
-                c = p.getCard(i+7);
+                c = p.getCard(i);
                 if (i != 0) {
                     System.out.print(" and ");
                 }
                 System.out.print(c);
             } catch (NoSuchCardException e) {
-               System.out.println(e.getMessage());
-               throw e;
+                throw e;
             }
         }
         System.out.println("\n");

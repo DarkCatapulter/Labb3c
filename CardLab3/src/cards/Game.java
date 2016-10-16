@@ -24,10 +24,10 @@ public class Game {
         Deals two cards to each player,
         starting with player 1 and ending with dealer
          */
-        for (int i = 0; i <= noOfPlayers; i++) {
+        /*for (int i = 0; i <= noOfPlayers; i++) {
             player[i].addCard(deck.dealCard());
             player[i].addCard(deck.dealCard());
-        }
+        }*/
 
         /*
         Adds the total value of the cards players have currently in their hands
