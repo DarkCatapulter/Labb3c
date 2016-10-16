@@ -6,15 +6,24 @@ public class GameUI {
 
     /*
     Shows the entire hand of intended player
-    */
-    public void showHand(Player p) {
+     */
+    public void showHand(Player p) throws NoSuchCardException {
         System.out.print(p.getName() + " has ");
+        Card c;
         for (int i = 0; i < p.getNoOfCards(); i++) {
-            Card c = p.getCard(i);
-            if (i != 0) {
-                System.out.print(" and ");
+            try {
+                c = p.getCard(i+7);
+                if (i != 0) {
+                    System.out.print(" and ");
+                }
+                System.out.print(c);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                if (i < 0 || i > p.getNoOfCards()) {
+                    throw new NoSuchCardException(1);
+                } else if (p.getNoOfCards() == 0) {
+                    throw new NoSuchCardException(3);
+                }
             }
-            System.out.print(c);
         }
         System.out.println("\n");
     }
@@ -74,14 +83,14 @@ public class GameUI {
 
     /*
     Prints out the most recent card that got added/hit to players hand
-    */
+     */
     public void showHit(Player p, Card c) {
         System.out.println(p.getName() + " got a " + c + "\n");
     }
-    
+
     /*
     Prints out which players won and which players depending on final results
-    */
+     */
     public void winners(Player[] p, int noOfPlayers) {
         showHand(p[noOfPlayers]);
         System.out.println("Dealer had a total of " + p[noOfPlayers].getPoints() + " points \n");

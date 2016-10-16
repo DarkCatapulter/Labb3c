@@ -19,11 +19,12 @@ public class Hand {
     }
 
     public Card getCard(int index) {
-        if (index >= 0 && index < hand.size()) {
+        try {
             return hand.get(index);
-        } else {
-            return null;
+        } catch (NoSuchCardException n) {
+                System.out.println(n.getMessage());
         }
+        return null;
     }
 
     public Card removeCard(int index) {
